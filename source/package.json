@@ -1,0 +1,36 @@
+{
+  "name": "thesaas",
+  "banner_name": "TheSaaS",
+  "description": "Responsive Bootstrap 4 SaaS, Software & WebApp Template",
+  "version": "1.4.6",
+  "private": true,
+  "keywords": [
+    "landing",
+    "startup",
+    "webapp",
+    "saas"
+  ],
+  "homepage": "http://thetheme.io/thesaas",
+  "author": "TheThemeio",
+  "devDependencies": {
+    "autoprefixer": "^7.1.4",
+    "grunt": "^1.0.1",
+    "grunt-browser-sync": "^2.2.0",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-compress": "^1.1.0",
+    "grunt-contrib-concat": "^1.0.0",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-cssmin": "^1.0.0",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-uglify": "^2.2.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-file-creator": "^0.1.3",
+    "grunt-postcss": "^0.9.0",
+    "grunt-sass": "^2.0.0",
+    "grunt-scss-lint": "^0.3.8",
+    "grunt-text-replace": "^0.4.0",
+    "load-grunt-tasks": "^3.5.2",
+    "postcss-flexbugs-fixes": "^2.0.0",
+    "time-grunt": "^1.2.1"
+  }
+}
