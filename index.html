@@ -17,6 +17,8 @@
     <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
     <link rel="icon" href="assets/img/favicon.ico">
     <link rel="icon" href="favicon.ico">
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/jquery.countdown/dist/jquery.countdown.min.js"></script>
   </head>
 
   <body>
@@ -68,7 +70,18 @@
             <p class="fs-16 w-250 mx-auto hidden-md-up">Digital Receipts are the living history of our things.</p>
 
             <hr class="w-80">
-            <br>
+            <p>Presale ends in<p>
+            <div id="getting-started"></div>
+              <script type="text/javascript">
+                $("#getting-started")
+                .countdown("2018/02/15", function(event) {
+                  $(this).text(
+                    event.strftime('%D days %H:%M:%S')
+                  );
+                });
+              </script>
+
+              <br>
 
             <a class="btn btn-lg btn-round w-200 btn-primary mr-16" href="buy.html">Presale</a>
             <a class="btn btn-lg btn-round w-200 btn-outline btn-white" href="whitepaper.html">Whitepaper</a>
@@ -263,6 +276,7 @@
     <script src="assets/js/core.min.js"></script>
     <script src="assets/js/thesaas.min.js"></script>
     <script src="assets/js/script.js"></script>
+
 
   </body>
 </html>
