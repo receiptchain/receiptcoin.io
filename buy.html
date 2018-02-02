@@ -75,6 +75,10 @@
 
             <p>(Do not send from a Coinbase or Exchange account or you will not be able to retrieve your tokens. Recommended is myetherwallet.com or the official Ethereum wallet.)</p>
 
+            <input type="text" class="form-control" id="TTTransferAddress" placeholder="Address" />
+            <input type="text" class="form-control" id="TTTransferAmount" placeholder="Amount" />
+            <button class="btn btn-primary" id="transferButton" type="button">Transfer</button>
+
             <h2 class="text-center">
               Send to: 0x735aaf9ac634ea47c157c79eea521b0cb7430afc
               <!-- <small><a class="text-white" href="https://themeforest.net/item/thesaas-responsive-bootstrap-saas-software-webapp-template/19778599?license=extended&open_purchase_for_item_id=19778599&purchasable=source&ref=thethemeio">or purchase an Extended License</a></small> -->
@@ -96,11 +100,11 @@
 
             <p>Token Watch Address: receiptcoin.eth</p>
 
-            <p>0xd6e49800dECb64C0e195F791348C1e87a5864FD7</p></p>
+            <p>0xd6e49800dECb64C0e195F791348C1e87a5864FD7</p>
 
             <p>SYMBOL: RC(RCT Delta) Decimals: 9</p>
 
-            <p>https://etherdelta.com/#RCT-ETH</p>
+            <!-- <p>https://etherdelta.com/#RCT-ETH</p> -->
           </header>
 
         </div>
@@ -187,6 +191,10 @@
     <script src="assets/js/core.min.js"></script>
     <script src="assets/js/thesaas.min.js"></script>
     <script src="assets/js/script.js"></script>
+
+    <script src="blockchain/web3.min.js"></script>
+    <script src="blockchain/truffle-contract.js"></script>
+    <script src="blockchain/app.js"></script>
 
   </body>
 </html>

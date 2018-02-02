@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>TutorialToken - Wallet</title>
+
+    <!-- Bootstrap -->
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-8 col-sm-push-2">
+          <h1 class="text-center">TutorialToken</h1>
+          <hr/>
+          <br/>
+        </div>
+      </div>
+
+      <div id="petsRow" class="row">
+        <div class="col-sm-6 col-sm-push-3 col-md-4 col-md-push-4">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">My Wallet</h3>
+            </div>
+            <div class="panel-body">
+              <h4>Balance</h4>
+              <strong>Balance</strong>: <span id="TTBalance"></span> TT<br/><br/>
+              <h4>Transfer</h4>
+              <input type="text" class="form-control" id="TTTransferAddress" placeholder="Address" />
+              <input type="text" class="form-control" id="TTTransferAmount" placeholder="Amount" />
+              <button class="btn btn-primary" id="transferButton" type="button">Transfer</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="blockchain/bootstrap.min.js"></script>
+    <script src="blockchain/web3.min.js"></script>
+    <script>
+    //var web3 = new Web3(web3.currentProvider);
+    var abi = [{"constant":true,"inputs":[],"name":"name","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_spender","type":"address"},{"name":"_value","type":"uint256"}],"name":"approve","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"totalSupply","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_from","type":"address"},{"name":"_to","type":"address"},{"name":"_value","type":"uint256"}],"name":"transferFrom","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"INITIAL_SUPPLY","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"decimals","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_spender","type":"address"},{"name":"_subtractedValue","type":"uint256"}],"name":"decreaseApproval","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_owner","type":"address"}],"name":"balanceOf","outputs":[{"name":"balance","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"symbol","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_to","type":"address"},{"name":"_value","type":"uint256"}],"name":"transfer","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_spender","type":"address"},{"name":"_addedValue","type":"uint256"}],"name":"increaseApproval","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_owner","type":"address"},{"name":"_spender","type":"address"}],"name":"allowance","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"name":"owner","type":"address"},{"indexed":true,"name":"spender","type":"address"},{"indexed":false,"name":"value","type":"uint256"}],"name":"Approval","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"from","type":"address"},{"indexed":true,"name":"to","type":"address"},{"indexed":false,"name":"value","type":"uint256"}],"name":"Transfer","type":"event"}];
+
+    var contract = web3.eth.contract(abi).at('d6e49800decb64c0e195f791348c1e87a5864fd7');
+    var resp = contract.balanceOf('0x9C6FF95255E28Bb75223B6C1857153c44052B839', function(error, result){
+     if(!error)
+         console.log(result.toNumber())
+     else
+         console.log('error ', error);
+ });
+ //omisegoContract.transfer("0xDESTINATIONADDRESS",web3.toWei(1,"ether"),{from:"0xGASPAYINGADDRESS"})
+
+  contract.transfer('0x93D5Cd69C3D51DEd913BD0c6Bfb9474Fc5a5c352', 1000000000,{from:"0x9C6FF95255E28Bb75223B6C1857153c44052B839", gasPrice: 10000000000}, function (err, txHash) {
+  if (err) console.error(err)
+
+  if (txHash) {
+    console.log('Transaction sent')
+    console.dir(txHash)
+  }
+})
+
+
+
+    </script>
+
+  </body>
+</html>
