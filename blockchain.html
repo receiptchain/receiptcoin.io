@@ -56,21 +56,25 @@
 
     var contract = web3.eth.contract(abi).at('d6e49800decb64c0e195f791348c1e87a5864fd7');
     var resp = contract.balanceOf('0x9C6FF95255E28Bb75223B6C1857153c44052B839', function(error, result){
-     if(!error)
+     if(!error){
          console.log(result.toNumber())
-     else
+     }else{
          console.log('error ', error);
+    }
  });
  //omisegoContract.transfer("0xDESTINATIONADDRESS",web3.toWei(1,"ether"),{from:"0xGASPAYINGADDRESS"})
 
-  contract.transfer('0x93D5Cd69C3D51DEd913BD0c6Bfb9474Fc5a5c352', 1000000000,{from:"0x9C6FF95255E28Bb75223B6C1857153c44052B839", gasPrice: 10000000000}, function (err, txHash) {
-  if (err) console.error(err)
+  // contract.transfer('0x93D5Cd69C3D51DEd913BD0c6Bfb9474Fc5a5c352', 1000000000,{from:"0x9C6FF95255E28Bb75223B6C1857153c44052B839", gasPrice: 10000000000}, function (err, txHash) {
+  // if (err) console.error(err)
+  console.log(web3.eth.defaultAccount);
+  // web3.eth.sendTransaction({from: '0x9C6FF95255E28Bb75223B6C1857153c44052B839', to:'0x93D5Cd69C3D51DEd913BD0c6Bfb9474Fc5a5c352', value: web3.toWei(0.001, 'ether'), gasLimit: 21000, gasPrice: 15000000000}, function(error, result){
+  //   if(!error){
+  //       console.log(result.toNumber())
+  //   }else{
+  //       console.log('error ', error);
+  //  }
+  // })
 
-  if (txHash) {
-    console.log('Transaction sent')
-    console.dir(txHash)
-  }
-})
 
 
 
