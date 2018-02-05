@@ -82,7 +82,7 @@ small,
 
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
-  font-family: "Dosis", "Open Sans", sans-serif;
+  font-family: sans-serif;
   font-weight: 600;
   color: #37404d;
   letter-spacing: 1px;
@@ -4454,7 +4454,7 @@ textarea.form-control-sm {
 }
 
 .shop-item .item-details .item-price {
-  font-family: "Dosis", "Open Sans", sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-weight: 100;
   font-size: 25px;
   letter-spacing: 1px;
@@ -9086,7 +9086,7 @@ a.text-danger:hover, a.text-danger:focus {
 
 .font-title,
 .font-raleway {
-  font-family: "Dosis", "Open Sans", sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 .fs-8 {
